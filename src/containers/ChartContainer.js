@@ -32,7 +32,7 @@ return (
   <h2>
   Tunes!
   </h2>
-  <TuneList tunesData={this.state.tunes}/>
+  <TuneList tunesData={this.state.tunes} />
 
   </div>
 )

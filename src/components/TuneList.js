@@ -6,7 +6,7 @@ class TuneList extends Component{
 render(){
   const tuneNodes = this.props.tunesData.map((tune, index)=>{
     return (
-      <Tune key={index}>{tune.title}</Tune>
+      <Tune tuneDetails={tune} chartPosition={index + 1} key={index}>{tune.title}</Tune>
     )
   })
   return(
