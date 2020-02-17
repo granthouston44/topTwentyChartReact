@@ -23,17 +23,19 @@ componentDidMount(){
 
 render(){
 console.log('render');
-const selectedTune = this.state.tunes.find(tune => {
-  return tune.id === this.state.selectedTune;
-})
+// const selectedTune = this.state.tunes.find(tune => {
+//   return tune. === this.state.selectedTune;
+// })
 
 return (
   <div>
   <h2>
-  tune stuff
+  Tunes!
   </h2>
+  <TuneList tunesData={this.state.tunes}/>
+
   </div>
-);
+)
 }
 
 }
