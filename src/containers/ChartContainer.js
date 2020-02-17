@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import TuneList from '../components/TuneList'
+import TuneDetail from '../components/TuneDetail'
 
 class ChartContainer extends Component{
   constructor(props){
@@ -8,6 +9,7 @@ class ChartContainer extends Component{
       tunes: [],
       selectedTune: ""
     }
+    this.handleSelectedTune = this.handleSelectedTune.bind(this)
   }
 
 
@@ -21,18 +23,24 @@ componentDidMount(){
   .catch(err => console.error)
 }
 
+handleSelectedTune(tuneTitle){
+  console.log('selected Tune');
+  this.setState({selectedTune: tuneTitle})
+}
+
 render(){
 console.log('render');
-// const selectedTune = this.state.tunes.find(tune => {
-//   return tune. === this.state.selectedTune;
-// })
+const selectedTune = this.state.tunes.find(tune => {
+  return tune.title.label === this.state.selectedTune;
+})
 
 return (
   <div>
   <h2>
   Tunes!
   </h2>
-  <TuneList tunesData={this.state.tunes} />
+  <TuneList onTuneSelected={this.handleSelectedTune} tunesData={this.state.tunes} />
+  <TuneDetail selectedTune={selectedTune}/>
 
   </div>
 )
